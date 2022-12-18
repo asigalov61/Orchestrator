@@ -200,7 +200,7 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
           # It had been observed that music models learn best from multi-instrumental music, even for solo instruments
           # So you can setup filtering by number of instruments here if you want
 
-          if len(events_matrix1) > 0 and num_instr > 1:
+          if len(events_matrix1) > 0 and num_instr > 0:
 
             # recalculating timings
             for e in events_matrix1:
@@ -245,7 +245,7 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
                   if TRANSPOSE_PITCHES_TO_MEAN_C:
                     ptc_aug = ptc + ptc_delta # Transposing composition to median C
                   else:
-                    ptc_aug = 0
+                    ptc_aug = ptc
                 else:
                   ptc_aug = ptc + 128 # Shifting drums pitches because drums structure is different from non-drums
 
