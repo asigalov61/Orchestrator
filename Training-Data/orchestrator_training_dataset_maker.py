@@ -193,6 +193,8 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
           # PRE-PROCESSING
 
           # checking number of instruments in a composition
+          instruments_list_without_drums = list(set([y[3] for y in events_matrix1 if y[3] != 9]))
+
           instruments_list = list(set([y[3] for y in events_matrix1]))
           num_instr = len(instruments_list)
 
@@ -200,7 +202,7 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
           # It had been observed that music models learn best from multi-instrumental music, even for solo instruments
           # So you can setup filtering by number of instruments here if you want
 
-          if len(events_matrix1) > 0 and num_instr > 0:
+          if len(events_matrix1) > 0 and len(instruments_list_without_drums) > 0:
 
             # recalculating timings
             for e in events_matrix1:
