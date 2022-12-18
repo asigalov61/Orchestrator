@@ -110,7 +110,7 @@ print('=' * 70)
 
 START_FILE_NUMBER = 0
 LAST_SAVED_BATCH_COUNT = 0
-TRANSPOSE_PITCHES_TO_MEDIAN_C = False
+TRANSPOSE_PITCHES_TO_MEAN_C = False
 
 input_files_count = START_FILE_NUMBER
 files_count = LAST_SAVED_BATCH_COUNT
@@ -215,7 +215,7 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
             pitches = [y[4] for y in events_matrix1 if y[3] != 9]
 
             if len(pitches) > 0:
-              avg_ptc = round(statistics.median(pitches))
+              avg_ptc = round(statistics.mean(pitches))
             else:
               avg_ptc = 0
 
@@ -242,7 +242,7 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
 
                 # Pitches shifting
                 if cha != 9:
-                  if TRANSPOSE_PITCHES_TO_MEDIAN_C:
+                  if TRANSPOSE_PITCHES_TO_MEAN_C:
                     ptc_aug = ptc + ptc_delta # Transposing composition to median C
                   else:
                     ptc_aug = 0
