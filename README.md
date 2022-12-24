@@ -5,6 +5,15 @@
 
 ***
 
+## Original Version
+
+[![Open In Colab][colab-badge]][colab-notebook3]
+
+[colab-notebook3]: <https://colab.research.google.com/github/asigalov61/Orchestrator/blob/main/Orchestrator.ipynb>
+[colab-badge]: <https://colab.research.google.com/assets/colab-badge.svg>
+
+***
+
 ## Useful links
 
 ### 1) https://aclanthology.org/2020.acl-main.672/
