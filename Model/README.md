@@ -2,6 +2,10 @@
 
 ***
 
+## Model was trained for ~117 hours/55253 steps @ 4 batches on a single A100 80GB GPU
+
+***
+
 ## Model stats:
 
 ### FLoss 0.3277 CE
