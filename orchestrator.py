@@ -463,7 +463,7 @@ plt.show()
 number_of_tokens_tp_generate = 512 #@param {type:"slider", min:32, max:4064, step:32}
 number_of_batches_to_generate = 4 #@param {type:"slider", min:1, max:16, step:1}
 
-#@markdown Use custom MIDI sequences if you want to have model try to mimick custom MIDI composition. Or you can specify your own, completely custom sequence for the model to use
+#@markdown Use custom MIDI sequences if you want to have model try to mimic custom MIDI composition. Or you can specify your own, completely custom sequence for the model to use
 
 start_improv_sequence_type = "custom_MIDI_instruments_and_composition_seq" #@param ["custom_MIDI_instruments_seq", "custom_MIDI_instruments_and_composition_seq", "user_defined_seq"]
 
@@ -474,12 +474,12 @@ number_of_instruments = 4 #@param {type:"slider", min:1, max:12, step:1}
 
 #@markdown NOTE: If you want to specify composition seq, you must specify all four parameters. All four parameters must be > 0
 
-desired_time = 10 #@param {type:"slider", min:0, max:127, step:1}
+desired_time = 0 #@param {type:"slider", min:0, max:127, step:1}
 notes_or_chords_time = True #@param {type:"boolean"}
-desired_duration = 10 #@param {type:"slider", min:0, max:127, step:1}
-desired_pitch = 60 #@param {type:"slider", min:0, max:127, step:1}
+desired_duration = 0 #@param {type:"slider", min:0, max:127, step:1}
+desired_pitch = 0 #@param {type:"slider", min:0, max:127, step:1}
 instruments_or_drums_pitch = True #@param {type:"boolean"}
-desired_velocity = 6 #@param {type:"slider", min:0, max:8, step:1}
+desired_velocity = 0 #@param {type:"slider", min:0, max:8, step:1}
 
 #@markdown Other settings
 
