@@ -21,6 +21,8 @@
 [colab-badge]: <https://colab.research.google.com/assets/colab-badge.svg>
 
 ### Features include:
+
+### 1) Improv Generation
 ### 1) Standard Continuation
 ### 2) Stabilized Continuation
 ### 3) Instruments and Dynamics Orchestration
