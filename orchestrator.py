@@ -465,7 +465,7 @@ number_of_batches_to_generate = 4 #@param {type:"slider", min:1, max:16, step:1}
 
 #@markdown Use custom MIDI sequences if you want to have model try to mimick custom MIDI composition. Or you can specify your own, completely custom sequence for the model to use
 
-start_improv_sequence_type = "custom_MIDI_instruments_seq" #@param ["custom_MIDI_instruments_seq", "custom_MIDI_instruments_and_composition_seq", "user_defined_seq"]
+start_improv_sequence_type = "custom_MIDI_instruments_and_composition_seq" #@param ["custom_MIDI_instruments_seq", "custom_MIDI_instruments_and_composition_seq", "user_defined_seq"]
 
 #@markdown Specify user-defined improv sequence below
 
@@ -501,7 +501,7 @@ if start_improv_sequence_type == 'custom_MIDI_instruments_seq':
 if start_improv_sequence_type == 'custom_MIDI_instruments_and_composition_seq':
   outy = melody_chords_f[:8]
 
-if start_improv_sequence_type == 'cuser_defined_seq':
+if start_improv_sequence_type == 'user_defined_seq':
   if drums_present_or_not:
     drumsp = 1
   else:
