@@ -412,10 +412,16 @@ if len(events_matrix1) > 0 and len(instruments_list_without_drums) > 0:
         vel = ((ss[3]-640) % 9) * 15
                         
         song_f.append(['note', tim, dur, channel, pitch, vel ])
+
+    detailed_stats = TMIDIX.Tegridy_SONG_to_MIDI_Converter(song_f,
+                                                          output_signature = 'Orchestrator',  
+                                                          output_file_name = '/content/Orchestrator-Seed-Composition',
+                                                          track_name='Project Los Angeles',
+                                                          list_of_MIDI_patches=[0, 24, 32, 40, 42, 46, 56, 71, 73, 0, 53, 19, 0, 0, 0, 0],
+                                                          number_of_ticks_per_quarter=500)
         
     #=======================================================
 
-print('Done!')
 print('=' * 70)
 print('Composition stats:')
 print('Composition has', len(melody_chords_f1), 'notes')
@@ -425,8 +431,7 @@ print('=' * 70)
 print('Displaying resulting composition...')
 print('=' * 70)
 
-f1 = f.split('.')[0]
-fname = f1
+fname = '/content/Orchestrator-Seed-Composition'
 
 x = []
 y =[]
