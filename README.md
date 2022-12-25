@@ -5,7 +5,20 @@
 
 ***
 
+## Spotlight Features
+
+### 1) Fast and efficient Local Windowed Attention Transformer Implementation
+### 2) Novel Model Output Stabilization Technique/Implementation
+### 3) Properly and Sufficiently Trained Model
+
+***
+
 ## Original Version
+
+### Features include:
+### 1) Standard Continuation
+### 2) Stabilized Continuation
+### 3) Instruments and Dynamics Orchestration
 
 [![Open In Colab][colab-badge]][colab-notebook3]
 
