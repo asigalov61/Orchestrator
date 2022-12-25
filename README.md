@@ -15,15 +15,15 @@
 
 ## Original Version
 
-### Features include:
-### 1) Standard Continuation
-### 2) Stabilized Continuation
-### 3) Instruments and Dynamics Orchestration
-
 [![Open In Colab][colab-badge]][colab-notebook3]
 
 [colab-notebook3]: <https://colab.research.google.com/github/asigalov61/Orchestrator/blob/main/Orchestrator.ipynb>
 [colab-badge]: <https://colab.research.google.com/assets/colab-badge.svg>
+
+### Features include:
+### 1) Standard Continuation
+### 2) Stabilized Continuation
+### 3) Instruments and Dynamics Orchestration
 
 ***
 
