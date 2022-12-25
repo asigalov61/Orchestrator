@@ -29,6 +29,17 @@
 
 ***
 
+## Composer Version
+
+[![Open In Colab][colab-badge]][colab-notebook2]
+
+[colab-notebook2]: <https://colab.research.google.com/github/asigalov61/Orchestrator/blob/main/Orchestrator_Composer.ipynb>
+[colab-badge]: <https://colab.research.google.com/assets/colab-badge.svg>
+
+### MuseNet-style workflow to generate endless continuations
+
+***
+
 ## Useful links
 
 ### 1) https://aclanthology.org/2020.acl-main.672/
