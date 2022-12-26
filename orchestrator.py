@@ -1055,7 +1055,7 @@ plt.show()
 #@title Melody Harmonization
 
 melody_instrument = "Flute" #@param ["Piano", "Guitar", "Bass", "Violin", "Cello", "Harp", "Trumpet", "Clarinet", "Flute", "Choir", "Organ"]
-melody_length_in_tokens = 128 #@param {type:"slider", min:16, max:512, step:16}
+melody_length_in_notes = 128 #@param {type:"slider", min:16, max:512, step:16}
 temperature = 0.8 #@param {type:"slider", min:0.1, max:1, step:0.1}
 
 print('=' * 70)
@@ -1106,7 +1106,7 @@ inp = []
 
 start_time = time()
 
-for i in tqdm.tqdm(range(0, len(melody[:melody_length_in_tokens]))):
+for i in tqdm.tqdm(range(0, len(melody[:melody_length_in_notes]))):
 
   inp.extend(melody[i])
   
