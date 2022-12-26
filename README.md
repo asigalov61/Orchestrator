@@ -23,9 +23,10 @@
 ### Features include:
 
 ### 1) Improv Generation
-### 1) Standard Continuation
-### 2) Stabilized Continuation
-### 3) Instruments and Dynamics Orchestration
+### 2) Standard Continuation
+### 3) Stabilized Continuation
+### 4) Instruments and Dynamics Orchestration
+### 5) Melody Harmonization
 
 ***
 
