@@ -1302,6 +1302,4 @@ if len(out1) != 0:
     plt.ylabel("Pitch")
     plt.show()
 
-type(inp) == list
-
 """# Congrats! You did it! :)"""
