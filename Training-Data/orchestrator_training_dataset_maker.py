@@ -33,7 +33,6 @@ Powered by tegridy-tools: https://github.com/asigalov61/tegridy-tools
 print('Loading needed modules. Please wait...')
 import os
 
-import math
 import statistics
 import random
 
@@ -131,7 +130,7 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
         # Filtering out giant MIDIs
         file_size = os.path.getsize(f)
 
-        if file_size < 200000:
+        if file_size < 250000:
 
           #=======================================================
           # START PROCESSING
@@ -144,7 +143,7 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
           itrack = 1
           patches = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-          patch_map = [[0, 1, 2, 3, 4, 5, 6, 7], # Piano 
+          patch_map = [[0, 1, 2, 3, 4, 5, 6, 7], # Piano
                       [24, 25, 26, 27, 28, 29, 30], # Guitar
                       [32, 33, 34, 35, 36, 37, 38, 39], # Bass
                       [40, 41], # Violin
@@ -159,7 +158,7 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
                       ]
 
           while itrack < len(score):
-              for event in score[itrack]:         
+              for event in score[itrack]:
                   if event[0] == 'note' or event[0] == 'patch_change':
                       events_matrix.append(event)
               itrack += 1
@@ -175,16 +174,16 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
                   if event[0] == 'note':
                       event.extend([patches[event[3]]])
                       once = False
-                      
+
                       for p in patch_map:
                           if event[6] in p and event[3] != 9: # Except the drums
                               event[3] = patch_map.index(p)
                               once = True
-                              
+
                       if not once and event[3] != 9: # Except the drums
                           event[3] = 15 # All other instruments/patches channel
                           event[5] = max(80, event[5])
-                          
+
                       if event[3] < 12: # We won't write chans 12-16 for now...
                           events_matrix1.append(event)
                           stats[event[3]] += 1
@@ -206,8 +205,8 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
 
             # recalculating timings
             for e in events_matrix1:
-                e[1] = math.ceil(e[1] / 8) # Max 1 seconds for start-times
-                e[2] = math.ceil(e[2] / 16) # Max 2 seconds for durations
+                e[1] = int(e[1] / 8) # Max 1 seconds for start-times
+                e[2] = int(e[2] / 16) # Max 2 seconds for durations
 
             # Sorting by pitch, then by start-time
             events_matrix1.sort(key=lambda x: x[4], reverse=True)
@@ -230,7 +229,7 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
             melody_chords = []
             pe = events_matrix1[0]
             pt = -1
-            
+
             for e in events_matrix1:
 
                 # Cliping all values...
@@ -264,12 +263,12 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
                 if time !=0:
                   abs_time = time
 
-                # Writing final note 
+                # Writing final note
                 melody_chords.append([abs_time, dur, cha, ptc_aug, velocity])
 
                 pe = e
                 pt = time
-                
+
                 first_event = False
 
             #=======================================================
@@ -289,7 +288,7 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
               drums_present = 761 # Yes
             else:
               drums_present = 760 # No
-            
+
             melody_chords_f.extend([758, 759, drums_present, 762+(num_instr-1)])
 
             #=======================================================
@@ -304,7 +303,7 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
             intro_vel = (12 * 9) + intro_mode_velocity
 
             melody_chords_f.extend([intro_mode_time, intro_mode_dur+256, intro_mode_pitch+384, intro_vel+640])
-            
+
             #=======================================================
             # MAIN PROCESSING CYCLE
             #=======================================================
@@ -316,7 +315,7 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
               melody_chords_f.extend([m[0], m[1]+256, m[3]+384, chan_vel+640])
 
             #=======================================================
-            
+
             # Processed files counter
             files_count += 1
 
@@ -334,10 +333,10 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
               TMIDIX.Tegridy_Any_Pickle_File_Writer(melody_chords_f, '/content/drive/MyDrive/LAKH_INTs_'+count)
               melody_chords_f = []
               print('=' * 70)
-        
+
     except KeyboardInterrupt:
         print('Saving current progress and quitting...')
-        break  
+        break
 
     except Exception as ex:
         print('WARNING !!!')
@@ -360,7 +359,7 @@ TMIDIX.Tegridy_Any_Pickle_File_Writer(melody_chords_f, '/content/drive/MyDrive/L
 
 # Displaying resulting processing stats...
 print('=' * 70)
-print('Done!')   
+print('Done!')
 print('=' * 70)
 
 print('Resulting Stats:')
@@ -395,7 +394,7 @@ print('Sample INTs', train_data1[:15])
 out = train_data1[:200000]
 
 if len(out) != 0:
-    
+
     song = out
     song_f = []
     time = 0
@@ -415,7 +414,7 @@ if len(out) != 0:
           song1.append(son)
         son = []
         son.append(s)
-                    
+
     for ss in song1:
 
       if ss[0] < 128:
@@ -431,12 +430,12 @@ if len(out) != 0:
 
       channel = (ss[3]-640) // 9
       vel = ((ss[3]-640) % 9) * 15
-                      
+
       song_f.append(['note', time, dur, channel, pitch, vel ])
 
     detailed_stats = TMIDIX.Tegridy_SONG_to_MIDI_Converter(song_f,
-                                                        output_signature = 'Orchestrator',  
-                                                        output_file_name = '/content/Orchestrator-Music-Composition', 
+                                                        output_signature = 'Orchestrator',
+                                                        output_file_name = '/content/Orchestrator-Music-Composition',
                                                         track_name='Project Los Angeles',
                                                         list_of_MIDI_patches=[0, 24, 32, 40, 42, 46, 56, 71, 73, 0, 53, 19, 0, 0, 0, 0],
                                                         number_of_ticks_per_quarter=500)
